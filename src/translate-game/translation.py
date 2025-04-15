@@ -42,6 +42,6 @@ def translate_text(
     # For example, for "Hello! How are you doing today?":
     # Translated text: Bonjour comment vas-tu aujourd'hui?
     for translation in response.translations:
-        print(f"Translated text: {translation.translated_text}")
+        return translation.translated_text
 
     return response
