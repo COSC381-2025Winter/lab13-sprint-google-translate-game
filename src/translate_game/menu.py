@@ -1,4 +1,4 @@
-from main import quiz
+from selectingQuizQuestions import quiz
 
 def mainMenu():
     
