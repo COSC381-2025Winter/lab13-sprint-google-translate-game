@@ -1,4 +1,4 @@
-from main import translate_text
+from translation import translate_text
 
 def evaluate_quiz(user_answers, questions, language):
     """
