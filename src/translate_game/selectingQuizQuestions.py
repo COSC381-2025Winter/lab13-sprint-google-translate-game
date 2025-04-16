@@ -1,6 +1,5 @@
-from translation import translate_text
-from data import questions
-from score_board import evaluate_quiz
+from translate_game.translation import translate_text
+from translate_game.data import questions
 import random
 
 def quiz(language):
@@ -48,7 +47,7 @@ def quiz(language):
 
         index = index + 1
 
-    evaluate_quiz(userAnswers, correctAnswers, language)
-#quiz("ko")
+    return userAnswers, correctAnswers, language
+    #evaluate_quiz(userAnswers, correctAnswers, language)
     
 
