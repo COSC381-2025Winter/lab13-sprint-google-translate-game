@@ -1,6 +1,6 @@
-from main import translate_text
+from translation import translate_text
 
-def evaluate_quiz(user_answers, questions):
+def evaluate_quiz(user_answers, correct_answers, language):
     """
     user_answers: list of user input strings
     questions: list of dicts with 'foreign' and 'answer'
@@ -8,18 +8,18 @@ def evaluate_quiz(user_answers, questions):
     score = 0
     incorrect = []
 
-    for i, q in enumerate(questions):
-        correct_answer = q['answer'].lower()
+    for i in range(len(user_answers)):
         user_answer = user_answers[i].strip().lower()
+        correct_answer = correct_answers[i].strip().lower()
         if user_answer == correct_answer:
             score += 1
         else:
-            incorrect.append(q['foreign'])
+            # store index and correct answer for feedback
+            incorrect.append((i + 1, correct_answers[i]))
 
-    print(f"\nYou scored {score} out of {len(questions)}!")
+    print(f"\nYou scored {score} out of {len(correct_answers)}!")
 
-    # Grade
-    percentage = score / len(questions) * 100
+    percentage = score / len(correct_answers) * 100
     if score >= 9:
         grade = "A"
     elif score >= 7:
@@ -28,11 +28,10 @@ def evaluate_quiz(user_answers, questions):
         grade = "C"
     print(f"Grade: {grade} ({percentage:.1f}%)")
 
-    # Show translations for incorrect answers
     if incorrect:
-        print("\nReview your incorrect answers (Google Translate):")
-        for sentence in incorrect:
-            print(f"\nFrench: {sentence}")
-            response = translate_text(sentence, "fr", "en")
-            for t in response.translations:
-                print(f"Google Translate: {t.translated_text}")
+        print("\nReview your incorrect answers:")
+        for num, correct in incorrect:
+            print(f"\nWrong number: {num}")
+            translated = translate_text(str(correct), language, "en")
+            print(f"Google Translate: {translated}")
+
