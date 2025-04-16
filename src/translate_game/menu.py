@@ -1,7 +1,4 @@
-from main import quiz
-
 def mainMenu():
-    
     while(True):
         print("Welcome to the Translation Game")
         print("Language options: ")
@@ -11,7 +8,7 @@ def mainMenu():
         print("q: quit")
         choice = input("Enter a number to select a language: ")
         if choice == 'q':
-            break
+            return 'q'
         choice = int (choice)
         if choice == 1:
             language = "ko"
@@ -19,4 +16,4 @@ def mainMenu():
             language = "es"
         if choice == 3:
             language = "zh"
-        quiz(language)
+        return language
