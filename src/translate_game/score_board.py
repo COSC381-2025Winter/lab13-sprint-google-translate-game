@@ -1,6 +1,6 @@
 from main import translate_text
 
-def evaluate_quiz(user_answers, questions):
+def evaluate_quiz(user_answers, questions, language):
     """
     user_answers: list of user input strings
     questions: list of dicts with 'foreign' and 'answer'
@@ -33,6 +33,6 @@ def evaluate_quiz(user_answers, questions):
         print("\nReview your incorrect answers (Google Translate):")
         for sentence in incorrect:
             print(f"\nFrench: {sentence}")
-            response = translate_text(sentence, "fr", "en")
+            response = translate_text(sentence, language, "en")
             for t in response.translations:
                 print(f"Google Translate: {t.translated_text}")
