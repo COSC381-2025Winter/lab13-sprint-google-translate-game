@@ -1,5 +1,5 @@
-from translate_game.translation import translate_text
-from translate_game.data import questions
+from translation import translate_text
+from data import questions
 import random
 
 def quiz(language):
