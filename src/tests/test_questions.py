@@ -1,5 +1,5 @@
 import pytest
-from .. translate_game.data import questions
+from translate_game.data import questions
 
 #check if every question has an answer, answer choices, and the correct answer
 def test_all_questions_have_required_keys():
