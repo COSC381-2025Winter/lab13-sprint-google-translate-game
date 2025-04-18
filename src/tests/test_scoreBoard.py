@@ -1,7 +1,7 @@
 import pytest
 import translate_game.score_board
 
-
+#test cases for the score_board module
 def test_perfect_score(capsys, monkeypatch):
     def mock_translate(text, src, tgt):
         return f"translated({text})"
@@ -14,6 +14,7 @@ def test_perfect_score(capsys, monkeypatch):
     assert "You scored 10 out of 10!" in captured.out
     assert "Grade: A" in captured.out
 
+#test partial score
 def test_partial_score_with_translation(capsys, monkeypatch):
     def mock_translate(text, src, tgt):
         return f"translated({text})"
@@ -31,6 +32,7 @@ def test_partial_score_with_translation(capsys, monkeypatch):
     assert "Wrong number: 9" in captured.out
     assert "Wrong number: 10" in captured.out
 
+#test lowest score
 def test_low_score(capsys, monkeypatch):
     def mock_translate(text, src, tgt):
         return f"translated({text})"
