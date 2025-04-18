@@ -1,5 +1,5 @@
 import pytest
-from .. translate_game.menu import mainMenu
+from translate_game.menu import mainMenu
 
 
 def menu_test(monkeypatch, choice, expected):
