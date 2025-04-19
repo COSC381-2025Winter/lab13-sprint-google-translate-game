@@ -3,10 +3,10 @@ The Google Translate Quiz Game was created for Lab 13: Agile Project with GitHub
 
 
 # Installation
-1. Use the package manager [pip](https://pip.pypa.io/en/stable/) to install our requirements.txt
-
+1. Set up a virtual environment
 ```bash
-pip install -r requirements.txt
+    python3 -m venv .venv
+	source .venv/bin/activate
 ```
 2. Create a .json file called **galvanic-circle-456503-r4-87f89aed0c2a.json** we emailed you this file.
 
@@ -16,7 +16,7 @@ pip install -r requirements.txt
 #### On macOS:
 
 ```bash
-export GOOGLE_APPLICATION_CREDENTIALS="/Users/your-username/lab13-sprint-google-translate-game/galvanic-circle-456503-r4-87f89aed0c2a.json"
+export GOOGLE_APPLICATION_CREDENTIALS="Absolute_Path_to_File"
 ```
 
 #### On Windows:
@@ -25,10 +25,16 @@ set GOOGLE_APPLICATION_CREDENTIALS="C:\Users\your-username\lab13-sprint-google-t
 ```
 
 
-4. Run the following python command:
-```python
-python3 main.py
+4. install package from TestPyPi:
+```bash
+pip install --index-url https://test.pypi.org/simple/ \
+            --extra-index-url https://pypi.org/simple \
+            COSC381-WINTER25-TRANSLATION-GAME --upgrade
 ```
+5. run the file by running:
+...bash
+python -m translate_game.main
+...
 
 # Team
 #### Patrick Martus
