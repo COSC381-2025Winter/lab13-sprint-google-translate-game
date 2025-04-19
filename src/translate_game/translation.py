@@ -38,10 +38,5 @@ def translate_text(
         target_language_code=target_language_code,
     )
 
-    # Display the translation for the text.
-    # For example, for "Hello! How are you doing today?":
-    # Translated text: Bonjour comment vas-tu aujourd'hui?
     for translation in response.translations:
         return translation.translated_text
-
-    return response
